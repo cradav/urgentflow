@@ -138,6 +138,7 @@ const SymptomCollector = ({
 
   const handleComplete = () => {
     onComplete(symptoms, chiefComplaint);
+    // Ensure we go to location selection after symptom collection
     navigate("/location-selection");
   };
 

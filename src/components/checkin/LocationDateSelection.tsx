@@ -252,7 +252,7 @@ const LocationDateSelection = ({
             </div>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <Button variant="outline" onClick={() => navigate("/insurance")}>
+            <Button variant="outline" onClick={() => navigate("/intake")}>
               Back
             </Button>
             <Button

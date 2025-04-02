@@ -55,7 +55,7 @@ interface InsuranceVerificationProps {
 
 const InsuranceVerification = ({
   insuranceDetails = {
-    insuranceProvider: "Blue Cross Blue Shield",
+    insuranceProvider: "Blue Shield California",
     memberId: "XYZ123456789",
     groupNumber: "G9876543",
     planType: "PPO",
@@ -356,7 +356,10 @@ const InsuranceVerification = ({
                       Edit Insurance Information
                     </Button>
                     <Button
-                      onClick={handleShowAlternativePayment}
+                      onClick={() => {
+                        handleShowAlternativePayment();
+                        navigate("/payment-options");
+                      }}
                       className="flex-1"
                     >
                       Continue Without Insurance
@@ -448,14 +451,29 @@ const InsuranceVerification = ({
         </>
       )}
 
-      <CardFooter className="flex justify-between px-0">
-        <Button variant="outline" onClick={onBack} disabled={isVerifying}>
+      <CardFooter className="flex flex-wrap gap-2 px-0">
+        <Button
+          variant="outline"
+          onClick={onBack}
+          disabled={isVerifying}
+          className="mr-auto"
+        >
           Back
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() => {
+            handleShowAlternativePayment();
+            navigate("/payment-options");
+          }}
+          disabled={isVerifying}
+        >
+          Continue Without Insurance
         </Button>
         <Button
           onClick={() => {
             onContinue();
-            navigate("/location-selection");
+            navigate("/intake");
           }}
           disabled={isVerifying}
         >

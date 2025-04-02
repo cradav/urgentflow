@@ -13,6 +13,12 @@ const DocumentScanner = lazy(
 const InsuranceVerification = lazy(
   () => import("./components/insurance/InsuranceVerification"),
 );
+const PaymentOptions = lazy(
+  () => import("./components/payment/PaymentOptions"),
+);
+const CreditCardAuthorization = lazy(
+  () => import("./components/payment/CreditCardAuthorization"),
+);
 const LocationDateSelection = lazy(
   () => import("./components/checkin/LocationDateSelection"),
 );
@@ -26,9 +32,14 @@ function App() {
       <>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/intake" element={<SymptomCollector />} />
           <Route path="/registration/documents" element={<DocumentScanner />} />
           <Route path="/insurance" element={<InsuranceVerification />} />
+          <Route path="/payment-options" element={<PaymentOptions />} />
+          <Route
+            path="/credit-card-authorization"
+            element={<CreditCardAuthorization />}
+          />
+          <Route path="/intake" element={<SymptomCollector />} />
           <Route
             path="/location-selection"
             element={<LocationDateSelection />}
